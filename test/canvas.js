@@ -1,7 +1,7 @@
 "use strict";
 
 var PNGReader = require('../PNGReader');
-var Canvas = require('canvas');
+var {createCanvas} = require('canvas')
 var fs = require("fs");
 var out = fs.createWriteStream(__dirname + '/test.png');
 
@@ -20,7 +20,7 @@ fs.readFile(file, function(err, bytes){
 		console.log('bitDepth', png.bitDepth);
 		console.log('colors', png.colors);
 
-		var canvas = new Canvas(png.width, png.height);
+		var canvas = createCanvas(png.width, png.height);
 		var ctx = canvas.getContext('2d');
 		var stream = canvas.createPNGStream();
 
